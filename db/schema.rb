@@ -15,9 +15,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_044323) do
   enable_extension "plpgsql"
 
   create_table "characters", force: :cascade do |t|
-    t.string "url_name"
-    t.string "url_location"
-    t.string "url_house"
+    t.string "name"
+    t.string "location"
+    t.string "house"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
