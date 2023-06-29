@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  @characters = Character.all
   def index
+    @characters = Character.all
   end
 end
