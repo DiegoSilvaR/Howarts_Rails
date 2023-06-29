@@ -1,0 +1,68 @@
+<style>
+  body {
+    background-color: #212529;
+    color: #fff;
+  }
+
+  .background-image {
+    position: cover;
+    z-index: -1; /* Mover la imagen detrás de las cards */
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  @font-face {
+    font-family: 'HarryPotterFont';
+    src: url('<%= asset_path('harry_potter.ttf') %>') format('truetype');
+  }
+
+  /* Otros estilos CSS */
+
+  h1 {
+    font-family: 'HarryPotterFont', sans-serif;
+    /* Otros estilos para el título */
+    font-size: 120px;
+  }
+
+  h2 {
+    font-family: 'HarryPotterFont', sans-serif;
+    /* Otros estilos para el título */
+    font-size: 55px;
+  }
+</style>
+
+<div class="container-fluid vh-100 d-flex flex-column">
+  <div class="background-image">
+    <%= image_tag "fondo.jpg", class: "img-fluid mx-auto d-block", alt: "Imagen Harry Potter" %>
+    <div class="overlay">
+      <h1 class="harry-potter-font">Personajes Harry Potter</h1>
+    </div>
+  </div>
+  <div class="row flex-grow-1">
+    <% @characters.each do |a| %>
+      <div class="col-md-4 mb-3">
+        <div class="card bg-secondary text-light h-100">
+          <div class="card-body text-center">
+            <h2 class="card-title harry-potter-font"><%= a.name %></h2>
+            <h4 class="card-text">Ubicación: <%= a.location %></h4>
+            <h6 class="card-text">Casa: <%= a.house %></h6>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <footer class="p-3 text-center">
+    Desafío Ruby on Rails - Diego Silva
+  </footer>
+</div>
